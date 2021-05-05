@@ -6,15 +6,15 @@ canceling transaction (canseletion request will be written to local file on back
 get code:
 1. `git clone git@github.com:vadimgh/sayollo-app.git`
 
-instructions to start api (in server folder):
+instructions to start api (in the server folder):
 
 1. `npm install`
-2. `node server.js`
+2. `npm start`
 
-instructions to start angular app (in client folder):
+instructions to start angular app (in the client folder):
 
 1. `npm install`
-2. `ng serve`
+2. `ng start`
 
 # API
 
