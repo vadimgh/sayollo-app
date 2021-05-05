@@ -1,0 +1,27 @@
+{
+  "name": "api",
+  "version": "0.0.0",
+  "description": "",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "consolidate": "^0.10.0",
+    "express": "~3.4.8",
+    "node-fetch": "^2.6.1",
+    "passport": "~0.2.0",
+    "passport-local": "~0.1.6"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node server.js",
+    "start-inspect": "node --inspect-brk server.js"
+  },
+  "repository": {},
+  "keywords": [
+    "passport.js",
+    "rest",
+    "node.js"
+  ],
+  "author": "",
+  "readmeFilename": "README.md"
+}
