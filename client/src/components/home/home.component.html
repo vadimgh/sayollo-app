@@ -1,0 +1,139 @@
+<div class="home-container bg-light">
+  <div
+    class="transactions-container p-2 col-9"
+    *ngIf="transactionData; else loading"
+  >
+    <p>User Info:</p>
+    <!-- transactions user (start) -->
+    <div class="transactions-user-container p-3 mb-3">
+      <div class="lable-info">User:</div>
+      <div class="field-container">
+        <div class="property-field">Email:</div>
+        <div class="value-field">
+          {{ transactionData.user.email }}
+        </div>
+      </div>
+
+      <div class="field-container">
+        <div class="property-field">Phone Number:</div>
+        <div class="value-field">
+          {{ transactionData.user.phoneNumber }}
+        </div>
+      </div>
+
+      <div class="field-container">
+        <div class="property-field">First Name:</div>
+        <div class="value-field">
+          {{ transactionData.user.firstName }}
+        </div>
+      </div>
+
+      <div class="field-container">
+        <div class="property-field">Last Name:</div>
+        <div class="value-field">
+          {{ transactionData.user.lastName }}
+        </div>
+      </div>
+
+      <div class="field-container">
+        <div class="property-field">Country Id:</div>
+        <div class="value-field">
+          {{ transactionData.user.countryId }}
+        </div>
+      </div>
+
+      <div class="field-container">
+        <div class="property-field">State Province Id:</div>
+        <div class="value-field">
+          {{ transactionData.user.stateProvinceId }}
+        </div>
+      </div>
+
+      <div class="field-container">
+        <div class="property-field">City:</div>
+        <div class="value-field">
+          {{ transactionData.user.city }}
+        </div>
+      </div>
+
+      <div class="field-container">
+        <div class="property-field">Address:</div>
+        <div class="value-field">
+          {{ transactionData.user.address }}
+        </div>
+      </div>
+
+      <div class="field-container">
+        <div class="property-field">Zip Code:</div>
+        <div class="value-field">
+          {{ transactionData.user.zipPostalCode }}
+        </div>
+      </div>
+    </div>
+    <!-- transactions user (end) -->
+
+    <!-- transactions data (start) -->
+    <p>Transactions Info:</p>
+    <div class="transactions-data-container p-3">
+      <div
+        *ngFor="
+          let transaction of transactionData.transactions;
+          let idx = index
+        "
+      >
+        <div class="lable-info">#{{ idx + 1 }}</div>
+        <div class="field-container">
+          <div class="property-field">Product Name:</div>
+          <div class="value-field">
+            {{ transaction.product?.productName }}
+          </div>
+        </div>
+
+        <div class="field-container">
+          <div class="property-field">Product Description:</div>
+          <div class="value-field">
+            {{ transaction.product?.shortDescription }}
+          </div>
+        </div>
+
+        <div class="field-container">
+          <div class="property-field">Product Title:</div>
+          <div class="value-field">
+            {{ transaction.product?.title }}
+          </div>
+        </div>
+
+        <div class="field-container">
+          <div class="property-field">Price:</div>
+          <div class="value-field">
+            {{ transaction.price }}
+          </div>
+        </div>
+
+        <!-- cancel transaction -->
+        <div class="text-right m-2">
+          <button
+            class="btn btn-sm btn-warning cancel-button"
+            (click)="onCancelTransaction(transaction)"
+          >
+            Cancel Transaction
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- transactions data (end) -->
+  </div>
+  <!-- spinner (start) -->
+  <ng-template #loading>
+    <div class="loading-container">
+      <div
+        class="spinner-border text-primary"
+        style="width: 3rem; height: 3rem"
+        role="status"
+      >
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
+  </ng-template>
+  <!-- spinner (end) -->
+</div>

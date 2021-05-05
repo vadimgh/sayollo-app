@@ -1,0 +1,66 @@
+:host {
+  color: #696868;
+  font-size: 16px;
+}
+
+.loading-container,
+.home-container,
+.transactions-container {
+  height: 100%;
+  width: 100%;
+}
+
+.transactions-container,
+.loading-container,
+.transactions-user-container,
+.transactions-data-container,
+.field-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.transactions-container {
+  background: #eaeaec;
+  margin: 0 auto;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+
+.transactions-data-container,
+.transactions-user-container {
+  position: relative;
+  flex-direction: column;
+  width: 90%;
+  background-color: #e2e4e6;
+  border-radius: 2px;
+
+  .field-container {
+    border-bottom: 0.5px #696868 solid;
+  }
+}
+
+.property-field {
+  align-self: flex-start;
+}
+
+.value-field {
+  align-self: flex-end;
+  margin-left: 5px;
+}
+
+.lable-info {
+  position: absolute;
+  left: 10px;
+  top: 5px;
+}
+
+.cancel-button {
+  font-size: 10px;
+}
+
+@media only screen and (max-width: 765px) {
+  .transactions-container {
+    font-size: 12px;
+  }
+}

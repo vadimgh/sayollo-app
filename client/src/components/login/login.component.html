@@ -1,0 +1,15 @@
+<div class="login-container">
+  <div class="login-form-container bg-light">
+    <form [formGroup]="form" *ngIf="form">
+      <div class="input-group mb-3">
+        <input class="form-control" formControlName="username" type="text" />
+      </div>
+      <div class="input-group mb-3">
+        <input class="form-control" formControlName="password" type="password" />
+      </div>
+      <div class="login-submit-container text-right">
+        <button class="btn btn-info" (click)="onLogin()">Login</button>
+      </div>
+    </form>
+  </div>
+</div>
