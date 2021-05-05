@@ -3,12 +3,15 @@
 The app allows basic authentication, fetching user transactions,
 canceling transaction (canseletion request will be written to local file on backend)
 
-instructions to start api:
+get code:
+1. `git clone git@github.com:vadimgh/sayollo-app.git`
+
+instructions to start api (in server folder):
 
 1. `npm install`
 2. `node server.js`
 
-instructions to start angular app:
+instructions to start angular app (in client folder):
 
 1. `npm install`
 2. `ng serve`
