@@ -1,5 +1,5 @@
 ## Features
-The app allow basic authorisation, using Passport js, fetching user transactions,
+The app allows basic authentication, fetching user transactions,
 canceling transaction (canseletion request will be written to local file on backend)
 
 instructions to start api:
@@ -41,4 +41,5 @@ not authorized he will be redirected to the login page. After authorization,
 UserService has private member _userSubject (which stores data about current user)
 
 API part can build using docker-compose. For that in root directory type:
-```docker-compose up
+
+1. `docker-compose up`
