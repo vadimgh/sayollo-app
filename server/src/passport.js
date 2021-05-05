@@ -7,7 +7,7 @@
 
 const LocalStrategy = require('passport-local').Strategy;
 
-const loginUser = require('./resource/login-user');
+const loginUser = require('./util/login-user');
 
 module.exports = function (passport, config) {
 

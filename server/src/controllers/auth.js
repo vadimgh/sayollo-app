@@ -11,11 +11,13 @@ const signin = (req, res, next) => {
     if (err) {
       return res.send(401, { success: false, message: err.message });
     }
+
     if (!user) {
       return res.send(401, { success: false, message: info.message });
     }
+
     // if user logged in
-    req.logIn(user, function (err) {
+    req.login(user, function (err) {
       if (err) {
         return next(err);
       }
