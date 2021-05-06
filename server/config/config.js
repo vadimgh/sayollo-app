@@ -7,7 +7,6 @@
 
 module.exports = {
   development: {
-    userId: 'fdkkkipis',
     externalApiUrl: 'https://6u3td6zfza.execute-api.us-east-2.amazonaws.com',
     externalApiLoginUserPath: '/prod/user/login',
     externalApiUserTransaction: '/prod/user/transactions',
@@ -17,7 +16,6 @@ module.exports = {
   },
   test: {},
   production: {
-    userId: 'fdkkkipis',
     externalApiUrl: 'https://6u3td6zfza.execute-api.us-east-2.amazonaws.com',
     externalApiLoginUserPath: '/prod/user/login',
     externalApiUserTransaction: '/prod/user/transactions',

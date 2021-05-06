@@ -46,7 +46,7 @@ export class LoginComponent implements OnInit, OnDestroy {
           map(() => {
             this.toasterService.popAsync(
               'success',
-              'sign up',
+              'sign in',
               'Successfuly logged in'
             );
             this.router.navigate(['/']);
@@ -55,7 +55,7 @@ export class LoginComponent implements OnInit, OnDestroy {
           catchError(() => {
             this.toasterService.popAsync(
               'error',
-              'sign up',
+              'sign in',
               'Cannot login at the moment. Please, try later'
             );
             return of({});

@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, switchMap } from 'rxjs/operators';
-import { BehaviorSubject, Observable, of } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import * as moment from 'moment';
 
 import { handleHttpErrorResponse } from '../utils/handle-http-error-response';
@@ -26,7 +26,6 @@ export class AuthService {
 
     return this.http.post<{ data: User }>(url, userPayload).pipe(
       switchMap((res) => {
-        // this._userSubject.next(res.data);
         this._setSession(res.data);
         return of(res.data);
       }),
@@ -34,19 +33,10 @@ export class AuthService {
     );
   }
 
-  logout() {
-    localStorage.removeItem(TOKEN_STORAGE_DATA_KEYS.token);
-    localStorage.removeItem(TOKEN_STORAGE_DATA_KEYS.expiresAt);
-  }
-
   isLoggedIn() {
     return (
       localStorage.getItem(TOKEN_STORAGE_DATA_KEYS.token) && moment().isBefore(this.getExpiration())
     );
-  }
-
-  isLoggedOut() {
-    return !this.isLoggedIn();
   }
 
   getExpiration() {
