@@ -7,19 +7,19 @@ import {
 } from '@angular/router';
 import { Observable, of as observableOf } from 'rxjs';
 
-import { UserService } from '../services/user.service';
+import { AuthService } from '../services/auth.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthorizedGuard implements CanActivate {
-  constructor(private userService: UserService, private router: Router) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<boolean> | Promise<boolean> | boolean {
-    if (!this.userService.user) {
+    if (!this.authService.isLoggedIn()) {
       this.router.navigate(['/login']);
       return observableOf(false);
     } else {

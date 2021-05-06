@@ -6,11 +6,11 @@
   "dependencies": {
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
+    "crypto": "^1.0.1",
     "express": "^3.4.8",
-    "express-session": "^1.17.1",
-    "node-fetch": "^2.6.1",
-    "passport": "^0.2.0",
-    "passport-local": "^0.1.6"
+    "express-jwt": "^6.0.0",
+    "jsonwebtoken": "^8.5.1",
+    "node-fetch": "^2.6.1"
   },
   "devDependencies": {},
   "scripts": {

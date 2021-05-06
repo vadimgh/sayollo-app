@@ -48,7 +48,8 @@ Structure
 
 HomeComponent, LoginComponent, NotFoundPageComponent loaded by routes. If user is
 not authorized he will be redirected to the login page. After authorization,
-UserService has private member \_userSubject (which stores data about current user)
+AuthService saves jwt token on localStorage with 'expiresAt' and 'token' field.
+In that way, we can check if a user is authenticated.
 
 API part can build using docker-compose. For that in root directory type:
 

@@ -12,7 +12,8 @@ module.exports = {
     externalApiLoginUserPath: '/prod/user/login',
     externalApiUserTransaction: '/prod/user/transactions',
     username: 'test1',
-    password: 'test1pass'
+    password: 'test1pass',
+    jwtSecret: 'secret'
   },
   test: {},
   production: {
@@ -21,6 +22,7 @@ module.exports = {
     externalApiLoginUserPath: '/prod/user/login',
     externalApiUserTransaction: '/prod/user/transactions',
     username: 'test1',
-    password: 'test1pass'
+    password: 'test1pass',
+    jwtSecret: 'secret'
   },
 };

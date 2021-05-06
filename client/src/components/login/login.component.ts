@@ -5,7 +5,7 @@ import { of, Subscription } from 'rxjs';
 import { Router } from '@angular/router';
 import { ToasterService } from 'angular2-toaster';
 
-import { UserService } from '../../services/user.service';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   constructor(
     private fb: FormBuilder,
-    private userService: UserService,
+    private authService: AuthService,
     private toasterService: ToasterService,
     private router: Router
   ) {}
@@ -40,8 +40,8 @@ export class LoginComponent implements OnInit, OnDestroy {
     const password = this.form.get('password').value;
 
     this._subscriptions.add(
-      this.userService
-        .signUp({ username, password })
+      this.authService
+        .logIn({ username, password })
         .pipe(
           map(() => {
             this.toasterService.popAsync(

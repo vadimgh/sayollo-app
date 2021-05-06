@@ -4,30 +4,48 @@
 
 'use strict';
 
-const passport = require('passport');
+const crypto = require('crypto');
+const jwt = require('jsonwebtoken');
 
-const signin = (req, res, next) => {
-  passport.authenticate('local', function (err, user, info) {
-    if (err) {
-      return res.send(401, { success: false, message: err.message });
-    }
+const config = require('../../config/config')[
+  process.env.NODE_ENV || 'development'
+];
+const loginUser = require('../util/login-user');
 
-    if (!user) {
-      return res.send(401, { success: false, message: info.message });
-    }
 
-    // if user logged in
-    req.login(user, function (err) {
-      if (err) {
-        return next(err);
-      }
-      return res.send(200, {
-        success: true,
-        message: 'Authorized',
-        data: user,
-      });
+const signin = async (req, res, next) => {
+  try {
+    const username = req.body.username;
+    const password = req.body.password;
+
+    // for testing (basic checking)
+    if (username !== config.username || password !== config.password)
+      return res.send(401, { success: false, message: 'Wrong credentials' });
+
+    const loginRes = await loginUser({
+      Username: username,
+      Password: password,
     });
-  })(req, res, next);
+
+    if (loginRes.code !== 200)
+      return res.send(401, { success: false, message: 'Wrong credentials' });
+
+    const jwtBearerToken = jwt.sign(
+      {
+        expiresIn: 120,
+        userId: crypto.randomBytes(20).toString('hex'),
+      },
+      config.jwtSecret
+    );
+
+    res.send(200, {
+      success: true,
+      message: 'Authenticated',
+      data: { jwtBearerToken, expiresIn: 120 },
+    });
+  } catch (err) {
+    res.send(401, { success: false, message: 'Wrong credentials' });
+  }
 };
 
 exports.signin = signin;
