@@ -32,16 +32,16 @@ const signin = async (req, res, next) => {
 
     const jwtBearerToken = jwt.sign(
       {
-        expiresIn: 120,
         userId: crypto.randomBytes(20).toString('hex'),
       },
-      config.jwtSecret
+      config.jwtSecret,
+      { expiresIn: 3600 }
     );
 
     res.send(200, {
       success: true,
       message: 'Authenticated',
-      data: { jwtBearerToken, expiresIn: 120 },
+      data: { jwtBearerToken, expiresIn: 3600 },
     });
   } catch (err) {
     res.send(401, { success: false, message: 'Wrong credentials' });

@@ -1,7 +1,7 @@
 /*
  * src/controllers/check-authentication.js
  */
-'use strict'
+'use strict';
 
 const expressJwt = require('express-jwt');
 
